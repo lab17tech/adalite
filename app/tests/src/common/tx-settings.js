@@ -91,6 +91,65 @@ const transactionSettings = {
     ttl,
     txHash: '059cce8e6c1d404798237b36ee45f74dafb0cf463ad236def4bf305474b6a666',
   },
+  sendAdaNullTtl: {
+    args: {
+      address:
+        'addr1qjag9rgwe04haycr283datdrjv3mlttalc2waz34xcct0g4uvf6gdg3dpwrsne4uqng3y47ugp2pp5dvuq0jqlperwj83r4pwxvwuxsgds90s0',
+      coins: 1000000,
+      sendAmount: {assetFamily: AssetFamily.ADA, fieldValue: `${1.5}`, coins: 1500000},
+      txType: TxType.SEND_ADA,
+    },
+    utxos,
+    txPlanResult: {
+      success: true,
+      txPlan: {
+        inputs: [
+          {
+            txHash: 'deadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef',
+            address:
+              'addr1q8eakg39wqlye7lzyfmh900s2luc99zf7x9vs839pn4srjs2s3ps2plp2rc2qcgfmsa8kx2kk7s9s6hfq799tmcwpvpsjv0zk3',
+            coins: 10000000,
+            outputIndex: 1,
+            tokenBundle: inputTokens,
+          },
+        ],
+        outputs: [
+          {
+            isChange: false,
+            address:
+              'addr1qjag9rgwe04haycr283datdrjv3mlttalc2waz34xcct0g4uvf6gdg3dpwrsne4uqng3y47ugp2pp5dvuq0jqlperwj83r4pwxvwuxsgds90s0',
+            coins: 1500000,
+            tokenBundle: [],
+          },
+        ],
+        change: [
+          {
+            isChange: false,
+            address:
+              'addr1q8eakg39wqlye7lzyfmh900s2luc99zf7x9vs839pn4srjs2s3ps2plp2rc2qcgfmsa8kx2kk7s9s6hfq799tmcwpvpsjv0zk3',
+            coins: 6544342,
+            tokenBundle: [],
+          },
+          {
+            isChange: false,
+            address:
+              'addr1q8eakg39wqlye7lzyfmh900s2luc99zf7x9vs839pn4srjs2s3ps2plp2rc2qcgfmsa8kx2kk7s9s6hfq799tmcwpvpsjv0zk3',
+            coins: 1777776,
+            tokenBundle: inputTokens,
+          },
+        ],
+        certificates: [],
+        deposit: 0,
+        additionalLovelaceAmount: 0,
+        fee: 177882,
+        baseFee: 177882,
+        withdrawals: [],
+        auxiliaryData: null,
+      },
+    },
+    ttl: null,
+    txHash: '3ed3e337fa750c94fd73647588a85d4af5b47f9fa62d48bbd6ae2b1b2459f619',
+  },
   sendToken: {
     args: {
       address:
