@@ -60,7 +60,7 @@ function ShelleyTxAux({
   inputs: TxInput[]
   outputs: TxOutput[]
   fee: number
-  ttl: number
+  ttl: number | null
   certificates: TxCertificate[]
   withdrawals: TxWithdrawal[]
   auxiliaryDataHash: HexString | null
@@ -91,7 +91,7 @@ function ShelleyTxAux({
     txBody.set(TxBodyKey.INPUTS, cborizeTxInputs(inputs))
     txBody.set(TxBodyKey.OUTPUTS, cborizeTxOutputs(outputs))
     txBody.set(TxBodyKey.FEE, fee)
-    if (ttl !== null) {
+    if (ttl != null) {
       txBody.set(TxBodyKey.TTL, ttl)
     }
     if (certificates.length) {
@@ -103,7 +103,7 @@ function ShelleyTxAux({
     if (auxiliaryDataHash) {
       txBody.set(TxBodyKey.AUXILIARY_DATA_HASH, Buffer.from(auxiliaryDataHash, 'hex'))
     }
-    if (validityIntervalStart !== null) {
+    if (validityIntervalStart != null) {
       txBody.set(TxBodyKey.VALIDITY_INTERVAL_START, validityIntervalStart)
     }
     return encoder.pushAny(txBody)

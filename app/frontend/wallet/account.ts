@@ -218,7 +218,11 @@ const Account = ({config, cryptoProvider, blockchainExplorer, accountIndex}: Acc
     }
   }
 
-  async function prepareTxAux(txPlan: TxPlan, ttl?: number, validityIntervalStart?: number) {
+  async function prepareTxAux(
+    txPlan: TxPlan,
+    ttl?: number | null,
+    validityIntervalStart?: number | null
+  ) {
     const {inputs, outputs, change, fee, certificates, withdrawals, auxiliaryData} = txPlan
     const stakingAddress = await myAddresses.getStakingAddress()
     const changeOutputs: TxOutput[] = change.map((output) => ({
